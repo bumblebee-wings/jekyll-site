@@ -4,7 +4,7 @@ references:
   container_config: &container_config
     working_directory: ~/www/
     docker:
-      - image: circleci/ruby:2.6.6-node-browsers
+      - image: circleci/ruby:3.3.5-node-browsers
 
 ##
 # CircleCI config starts here...
