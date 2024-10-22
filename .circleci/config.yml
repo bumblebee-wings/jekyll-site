@@ -1,31 +1,78 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/configuration-reference
+##
+# Define commands to be used more than once here:
+references:
+  container_config: &container_config
+    working_directory: ~/www/
+    docker:
+      - image: circleci/ruby:2.6.6-node-browsers
+
+##
+# CircleCI config starts here...
 version: 2.1
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/jobs-steps/#jobs-overview & https://circleci.com/docs/configuration-reference/#jobs
+##
+# Here we define two jobs. One to build the website files, and another one to deploy to
+# our AWS S3 bucket.
 jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/executor-intro/ & https://circleci.com/docs/configuration-reference/#executor-job
-    docker:
-      # Specify the version you desire here
-      # See: https://circleci.com/developer/images/image/cimg/base
-      - image: cimg/base:current
-
-    # Add steps to the job
-    # See: https://circleci.com/docs/jobs-steps/#steps-overview & https://circleci.com/docs/configuration-reference/#steps
+  build:
+    <<: *container_config
     steps:
-      # Checkout the code as the first step.
+      # Pull code from GitHub
       - checkout
+      # This might be required to make sure we have the correct version of Bundler
+      # installed.
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+          name: "Bundle fix"
+          command: gem update bundler
+      # Install missing gems and cache them for future builds
+      - bundle/bundle-install
+      # Cache the repo code for the deploy job.
+      - save_cache:
+          paths: .
+          key: repo-{{ .Branch }}-{{ .Revision }}
 
-# Orchestrate jobs using workflows
-# See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
+      # Build the jekyll site into the _site directory.
+      - run:
+          name: "Build site"
+          command: bundle exec jekyll build --trace --lsi --strict_front_matter --profile
+      # Save the built Jekyll site to the cache for the deploy job
+      - save_cache:
+          paths:
+            - ./_site
+          key: jekyll-site-{{ .Branch }}-{{ .Revision }}
+
+  deploy:
+    <<: *container_config
+    executor: aws-cli/default
+    steps:
+      # Load the repo code from cache
+      - restore_cache:
+          keys:
+            - repo-{{ .Branch }}-{{ .Revision }}
+            - repo-{{ .Branch }}
+            - repo-
+
+      # Load the Jekyll site from cache
+      - restore_cache:
+          keys:
+            - jekyll-site-{{ .Branch }}-{{ .Revision }}
+            - jekyll-site-
+      # Install AWS CLI tools
+      - aws-cli/install
+      # Deploy our code to our AWS bucket
+      - run:
+          name: "Deploy to S3"
+          command: aws s3 sync _site "s3://$AWS_BUCKET_NAME" --delete
+
 workflows:
-  say-hello-workflow: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
+  version: 2
+  build-and-deploy:
     jobs:
-      - say-hello
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
