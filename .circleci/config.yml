@@ -4,7 +4,7 @@ references:
   container_config: &container_config
     working_directory: ~/www/
     docker:
-      - image: circleci/ruby:2.6.6-node-browsers
+      - image: circleci/ruby:2.7
 
 ##
 # CircleCI config starts here...
@@ -29,7 +29,10 @@ jobs:
       # installed.
       - run:
           name: "Bundle fix"
-          command: gem update bundler
+          command: gem install bundler -v 2.5.22
+      - run:
+          name: "Install dependencies"
+          command: bundle install
       # Install missing gems and cache them for future builds
       - bundle/bundle-install
       # Cache the repo code for the deploy job.
