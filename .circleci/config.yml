@@ -12,9 +12,9 @@ version: 2.1
 
 orbs:
   # Install the AWS CLI orb...
-  aws-cli: circleci/aws-cli
+  aws-cli: circleci/aws-cli@1.2.1
   # Install this Bundler orb...
-  bundle: toshimaru/bundle-install
+  bundle: toshimaru/bundle-install@0.3.1
 ##
 # Here we define two jobs. One to build the website files, and another one to deploy to
 # our AWS S3 bucket.
