@@ -13,6 +13,8 @@ jobs:
   build:
     docker:
       - image: cimg/ruby:3.3.5
+    environment:
+      BUNDLE_PATH: ~/Dropbox/my-site/jekyll-site/vendor/bundle
     steps:
       - checkout
       - restore_cache:
