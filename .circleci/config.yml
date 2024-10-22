@@ -4,7 +4,7 @@ references:
   container_config: &container_config
     working_directory: ~/www/
     docker:
-      - image: circleci/ruby:2.7
+      - image: circleci/ruby:3.3.5
 
 ##
 # CircleCI config starts here...
@@ -12,9 +12,8 @@ version: 2.1
 
 orbs:
   # Install the AWS CLI orb...
-  aws-cli: circleci/aws-cli@1.2.1
+  aws-cli: circleci/aws-cli@5.1.1
   # Install this Bundler orb...
-  bundle: toshimaru/bundle-install@0.3.1
 
 ##
 # Here we define two jobs. One to build the website files, and another one to deploy to
@@ -32,12 +31,12 @@ jobs:
           command: gem install bundler -v 2.5.22
       - run:
           name: "Install dependencies"
-          command: bundle install
+          command: bundle install --path vendor/bundle
       # Install missing gems and cache them for future builds
       - bundle/bundle-install
       # Cache the repo code for the deploy job.
       - save_cache:
-          paths: .
+          paths: .bundle
           key: repo-{{ .Branch }}-{{ .Revision }}
 
       # Build the jekyll site into the _site directory.
