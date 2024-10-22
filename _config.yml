@@ -28,8 +28,7 @@ github_username:  bumblebee-wings
 
 # Build settings
 theme: jekyll-dash
-plugins:
-  - jekyll-feed
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -78,3 +77,6 @@ social_links:
   - url: https://github.com/bumblebee-wings
     icon: github-square
     color: purple
+
+plugins:
+  - jekyll-feed
