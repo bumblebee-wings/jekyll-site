@@ -56,4 +56,4 @@ jobs:
           command: pip install awscli --upgrade --user
       - run:
           name: Upload to s3
-          command: aws s3 sync ./_site s3://$S3_BUCKET_NAME/ --delete --acl public-read
+          command: aws s3 sync ./_site s3://$AWS_BUCKET_NAME/ --delete --acl public-read
