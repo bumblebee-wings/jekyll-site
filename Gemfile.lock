@@ -71,6 +71,8 @@ GEM
       sass (~> 3.4)
     jekyll-seo-tag (2.8.0)
       jekyll (>= 3.8, < 5.0)
+    jekyll-tagging (1.1.0)
+      nuggets
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     json (2.7.2)
@@ -90,6 +92,7 @@ GEM
       jekyll-seo-tag (~> 2.1)
     nokogiri (1.16.7-x64-mingw-ucrt)
       racc (~> 1.4)
+    nuggets (1.6.1)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     pdf-reader (2.12.0)
@@ -135,6 +138,7 @@ DEPENDENCIES
   jekyll (~> 3.9.4)
   jekyll-dash
   jekyll-feed (~> 0.12)
+  jekyll-tagging
   kramdown-parser-gfm
   minima (~> 2.5)
   tzinfo (>= 1, < 3)
