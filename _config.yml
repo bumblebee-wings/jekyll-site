@@ -50,6 +50,21 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+dash:
+  # the way how dates should be displayed
+  date_format: "%b %-d, %Y"
+
+  # (optional) discqus comment configuration
+  disqus:
+    shortname: bumblebee  
+
+  # the animation speed of the post scroll-in effect
+  animation_speed: 50
+
+  # wether to enable Right-to-Left support or not
+  rtl: false
+
 # jekyll-paginate
 paginate: 5
 paginate_path: "/page:num/"
@@ -58,3 +73,8 @@ paginate_path: "/page:num/"
 tag_permalink_style: pretty
 tag_page_layout: tag_page
 tag_page_dir: tag
+
+social_links:
+  - url: https://github.com/bumblebee-wings
+    icon: github-square
+    color: purple
