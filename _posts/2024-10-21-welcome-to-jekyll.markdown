@@ -3,6 +3,7 @@ layout: post
 title:  "Segment Tree"
 date:   2024-10-22
 categories: [ "Computer-Science", "Data-Structures", Trees ]
+tags: [ "Computer-Science", "Data-Structures", Trees ]
 ---
 
 ## Definition
