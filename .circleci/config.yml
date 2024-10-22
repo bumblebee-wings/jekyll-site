@@ -46,8 +46,6 @@ jobs:
   deploy:
     docker:
       - image: cimg/python:3.9.1
-    environment:
-      S3_BUCKET_NAME: <<YOUR BUCKET NAME HERE>>
     steps:
       - attach_workspace:
           at: ./
@@ -56,4 +54,4 @@ jobs:
           command: pip install awscli --upgrade --user
       - run:
           name: Upload to s3
-          command: aws s3 sync ./_site s3://$AWS_BUCKET_NAME/ --delete --acl public-read
+          command: aws s3 sync _site s3://$AWS_BUCKET_NAME/ --delete --acl public-read
