@@ -21,7 +21,7 @@
 title: live like bumblebee
 email: bumbleb0728@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  My study site
+  My study site.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://bumblebees3.s3-website.ap-northeast-2.amazonaws.com/" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  bumblebee-wings
