@@ -35,3 +35,4 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 gem "jekyll-dash"
 gem "html-proofer"
+gem "kramdown-parser-gfm"
