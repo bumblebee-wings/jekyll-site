@@ -4,7 +4,7 @@ references:
   container_config: &container_config
     working_directory: ~/www/
     docker:
-      - image: circleci/ruby:3.3.5
+      - image: cimg/ruby:3.3.5
 
 ##
 # CircleCI config starts here...
