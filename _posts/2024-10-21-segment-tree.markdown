@@ -74,4 +74,4 @@ int sum(int v, int tl, int tr, int l, int r) {
 
 ```
 
-.
+I read https://cp-algorithms.com/data_structures/segment_tree.html
