@@ -29,8 +29,7 @@ github_username:  bumblebee-wings
 # Build settings
 theme: jekyll-dash
 
-markdown: kramdown
-mathjax: true
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -86,3 +85,4 @@ plugins:
   - jekyll-paginate
   - liquid-md5
   - jekyll/tagging
+  - jekyll-spaceship

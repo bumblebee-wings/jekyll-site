@@ -32,6 +32,7 @@ GEM
       fiber-storage
     fiber-storage (1.0.0)
     forwardable-extended (2.6.0)
+    gemoji (3.0.1)
     hashery (2.1.2)
     html-proofer (5.0.9)
       addressable (~> 2.3)
@@ -71,6 +72,11 @@ GEM
       sass (~> 3.4)
     jekyll-seo-tag (2.8.0)
       jekyll (>= 3.8, < 5.0)
+    jekyll-spaceship (0.10.2)
+      gemoji (~> 3.0)
+      jekyll (>= 3.6, < 5.0)
+      nokogiri (~> 1.6)
+      rainbow (~> 3.0)
     jekyll-tagging (1.1.0)
       nuggets
     jekyll-watch (2.2.1)
@@ -142,6 +148,7 @@ DEPENDENCIES
   jekyll-dash
   jekyll-feed (~> 0.12)
   jekyll-seo-tag
+  jekyll-spaceship
   jekyll-tagging
   kramdown-parser-gfm
   liquid-md5
