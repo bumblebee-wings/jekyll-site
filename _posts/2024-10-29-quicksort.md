@@ -1,7 +1,7 @@
 ---
 layout: post
 author: D.W.R
-title: Mergesort
+title: Quicksort
 date: 2024-10-29
 categories: [Computer-Science, Algorithms, Sorting]
 tags: [Computer-Science, Algorithms, Divide-and-Conquer, Sorting]
