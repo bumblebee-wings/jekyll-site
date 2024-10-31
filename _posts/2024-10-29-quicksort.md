@@ -9,7 +9,8 @@ tags: [Computer-Science, Algorithms, Divide-and-Conquer, Sorting]
 ## What is Quicksort?
 
  Quicksort is a important sorting algorithm that is approach of divide-and-conquer. In a given array $A[0...n-1]$, pivot is defined as $A[s]$, make $A[]$ that all elements of $A[0...s-1]$ are smaller than the pivot and elements of $A[s+1...n-1]$ are greater than the pivot.
-![partition algortihm of each array(Source: Introduction-to-the-design-and-analysis-of-algorithms)](/pictures/quicksort2.png)
+
+![partition algortihm of each array(Source: Introduction-to-the-design-and-analysis-of-algorithms)](/pictures/quicksort-2.png)
 
 ```
 Partition(A[l...r])
@@ -29,7 +30,7 @@ Partition(A[l...r])
 
 After that, do same things with both $A[0...s-1]$ and $A[s+1...n-1]$ `recursively`.
 
-![split into two array after partition algorithm(Source: Introduction-to-the-design-and-analysis-of-algorithms)](/pictures/quicksort1.png)
+![split into two array after partition algorithm(Source: Introduction-to-the-design-and-analysis-of-algorithms)](/pictures/quicksort-1.png)
 
 ```
 Quicksort(A[l...r])
