@@ -74,6 +74,9 @@ tag_permalink_style: pretty
 tag_page_layout: tag_page
 tag_page_dir: tag
 
+# replace avatar
+avatar_path: /pictures/bumblebee.jpg
+
 social_links:
   - url: https://github.com/bumblebee-wings
     icon: github-square
