@@ -9,7 +9,7 @@ tags: [Computer-Science, Algorithms, Divide-and-Conquer, Sorting]
 
 ## what is Mergesort?
 
-![mergesort(Source: Wikipedia)](../pictures/mergesort.png)
+![mergesort(Source: Wikipedia)](/pictures/mergesort.png)
 
 Mergesort is a classic example of the "divide-and-conquer" approach. It sorts an array  $A[0...n-1]$ by dividing it into two halves: $A[0...n/2-1]$ and $A[n/2...n-1]$. This division process continues until each part has only one element, making them naturally sorted. Then, each pair of sorted arrays is merged back together to form a single, sorted array.
 
