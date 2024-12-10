@@ -27,7 +27,7 @@ url: "http://bumblebees3.s3-website.ap-northeast-2.amazonaws.com/" # the base ho
 github_username:  bumblebee-wings
 
 # Build settings
-theme: jekyll-dash
+
 
 
 
